@@ -69,16 +69,15 @@ export default async function Page({ params: { slug = 'home' } }) {
             <Promotion />
           </Gutter>
         </section>
-      ): (
+      ) : (
         <>
-        <Hero {...hero} />
-        <Blocks
-        blocks={layout}
-        disableTopPadding={!hero || hero?.type === 'none' || hero?.type === 'lowImpact'}
-      />
+          <Hero {...hero} />
+          <Blocks
+            blocks={layout}
+            disableTopPadding={!hero || hero?.type === 'none' || hero?.type === 'lowImpact'}
+          />
         </>
       )}
-      
     </React.Fragment>
   )
 }

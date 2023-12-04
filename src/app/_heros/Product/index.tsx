@@ -23,19 +23,19 @@ export const ProductHero: React.FC<{
   } = product
 
   return (
-      <Gutter className={classes.productHero}>
-          <div className={classes.mediaWrapper}>
-            {!metaImage && <div className={classes.placeholder}>No image</div>}
-            {metaImage && typeof metaImage !== 'string' && (
-              <Media imgClassName={classes.image} resource={metaImage} fill />
-            )}
-          </div>
+    <Gutter className={classes.productHero}>
+      <div className={classes.mediaWrapper}>
+        {!metaImage && <div className={classes.placeholder}>No image</div>}
+        {metaImage && typeof metaImage !== 'string' && (
+          <Media imgClassName={classes.image} resource={metaImage} fill />
+        )}
+      </div>
 
-          <div className={classes.details}>
-              <h3 className={classes.title}>{title}</h3>
+      <div className={classes.details}>
+        <h3 className={classes.title}>{title}</h3>
 
-              <div className={classes.categoryWrapper}>
-              <div className={classes.categories}>
+        <div className={classes.categoryWrapper}>
+          <div className={classes.categories}>
             {categories?.map((category, index) => {
               const { title: categoryTitle } = category
 
@@ -46,21 +46,22 @@ export const ProductHero: React.FC<{
               return (
                 <p key={index} className={classes.category}>
                   {titleToUse}
-                  {!isLast && <Fragment>, &nbsp;</Fragment>} <span className={classes.separator}>|</span>
+                  {!isLast && <Fragment>, &nbsp;</Fragment>}{' '}
+                  <span className={classes.separator}>|</span>
                 </p>
               )
             })}
           </div>
-            <p className={classes.stock}> In stock</p>
-            </div>
-          <Price product={product} button={false} />
-          <div className={classes.description}>
-            <h6>Description</h6>
-            <p>{description}</p>
-          </div>
-          
-          <AddToCartButton product={product} className={classes.addToCartButton} />
-          </div>
-      </Gutter>
+          <p className={classes.stock}> In stock</p>
+        </div>
+        <Price product={product} button={false} />
+        <div className={classes.description}>
+          <h6>Description</h6>
+          <p>{description}</p>
+        </div>
+
+        <AddToCartButton product={product} className={classes.addToCartButton} />
+      </div>
+    </Gutter>
   )
 }
